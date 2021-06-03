@@ -36,10 +36,10 @@ def search_for_hashtags(consumer_key, consumer_secret, access_token, access_toke
         for tweet in tweepy.Cursor(api.search, q=hashtag_phrase+' -filter:retweets', lang="en", tweet_mode='extended').items(6000000000000000000000000000000000000000):
             w.writerow([tweet.created_at, tweet.full_text.replace('\n',' ').encode('utf-8'), tweet.user.screen_name.encode('utf-8'), [e['text'] for e in tweet._json['entities']['hashtags']], tweet.user.followers_count])
 
-consumer_key= "EGxDfDulxJP9oHGbkwkAzNSBK"
-consumer_secret= "BET032qvU4Z2UOUjflTbChdpqep60jHopjkGtVEycLhofKQSPx"
-access_token= "2854813381-EDVXKiR6Jw3aqw6EXJI24eQ7OTu8NVek6652sBN"
-access_token_secret= "0p7kLDqfr8p9XRLDxRF5qiLNUWximCcbMrchCr74dgcMD"
+consumer_key= ""
+consumer_secret= ""
+access_token= ""
+access_token_secret= ""
 
 hashtag_phrase= "edchat"
 
