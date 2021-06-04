@@ -6,7 +6,7 @@ import wordcloud
 from wordcloud import WordCloud
 
 # Reading dataset
-tweets_df = pd.read_csv("C:/Users/nic/Documents/OUR_Project/Code/tweets.csv", skiprows=lambda x: x % 2)
+tweets_df = pd.read_excel("C:/Users/nic/Documents/OUR_Project/Code/scraped_tweets.xlsx", skiprows=lambda x: x % 2)
 
 print(tweets_df)
 print(tweets_df.info())

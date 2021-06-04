@@ -3,6 +3,12 @@ import csv
 import tweepy
 import re
 import io
+import my_twitter_credentials
+
+consumer_key= my_twitter_credentials.CONSUMER_KEY
+consumer_secret= my_twitter_credentials.CONSUMER_SECRET
+access_token= my_twitter_credentials.ACCESS_TOKEN
+access_token_secret= my_twitter_credentials.ACCESS_TOKEN_SECRET
 
 """
 INPUTS:
@@ -26,20 +32,13 @@ def search_for_hashtags(consumer_key, consumer_secret, access_token, access_toke
 
     #open the spreadsheet we will write to
     with open('%s.csv' % (fname), 'w', encoding="utf-8") as file:
-
         w = csv.writer(file)
-
         #write header row to spreadsheet
         w.writerow(['timestamp', 'tweet_text', 'username', 'all_hashtags', 'followers_count'])
 
         #for each tweet matching our hashtags, write relevant info to the spreadsheet
-        for tweet in tweepy.Cursor(api.search, q=hashtag_phrase+' -filter:retweets', lang="en", tweet_mode='extended').items(6000000000000000000000000000000000000000):
+        for tweet in tweepy.Cursor(api.search, q=hashtag_phrase+' -filter:retweets', lang="en", tweet_mode='extended').items(600000):
             w.writerow([tweet.created_at, tweet.full_text.replace('\n',' ').encode('utf-8'), tweet.user.screen_name.encode('utf-8'), [e['text'] for e in tweet._json['entities']['hashtags']], tweet.user.followers_count])
-
-consumer_key= ""
-consumer_secret= ""
-access_token= ""
-access_token_secret= ""
 
 hashtag_phrase= "edchat"
 
