@@ -8,7 +8,7 @@ consumer_secret= my_twitter_credentials.CONSUMER_SECRET
 access_token= my_twitter_credentials.ACCESS_TOKEN
 access_token_secret= my_twitter_credentials.ACCESS_TOKEN_SECRET
 
-# Twitter authetification and the connection to Twitter Streaming API
+# Twitter authentication and the connection to Twitter Streaming API
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
